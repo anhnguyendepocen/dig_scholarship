@@ -3,33 +3,27 @@
 ## University of Colorado, Boulder
 
 ## N. Chardon
-## 20 Sept 2017
+## 20 Sept / 10 Oct 2017
 
 ## Aims: 
 ## 1. Install R and RStudio
 ## 2. Understand R & its interface
 ## 3. Create objects
-## 4. Practice basic functions to explore a data set 
-## 5. Check data set with basic functions
-## 6. Manipulate data set
+## 4. Practice basic functions to explore a data frame 
+## 5. Check data frame with basic functions
+## 6. Manipulate data frame
 ## 7. Save data files for future use 
-## 8. Write organized scripts
-## 9. Read in text and numeric data files
+## 8. Read in text and numeric data files 
+## 9. Write organized scripts
 
-## Recommended Homework:
-## 1. Practice newly learned skills with own dataset
-## 2. Run through 'ADVANCED' sections in this script
+## Using this script:
+## 1. The symbol '#' denotes comments. 
+##    If in the same line as a command, these comments describe what the command executes.
+## 2. All sections labeled 'PRACTICE' are meant to be completed on your own. 
+## 3. The corresponding voiceover to this script is available on OSF (https://osf.io/6jb9t/)
 
 ## Disclaimer: This script was written by Nathalie Chardon and reflects her coding style. 
 ## The University of Colorado, Boulder takes no responsibility for the content.
-
-
-## Clear R environment
-rm(list=ls())
-
-
-## Generated Dataframe(s):
-load('~/LOCATION/FILENAME.RData') #DESCRIPTION
 
 
 
@@ -62,6 +56,8 @@ load('~/LOCATION/FILENAME.RData') #DESCRIPTION
 
 # Follow prompts
 
+# Open RStudio and load this [attached] script
+
 
 
 
@@ -71,12 +67,11 @@ load('~/LOCATION/FILENAME.RData') #DESCRIPTION
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-# What's your name?
+
+# Introduce yourself to your neighbor(s)
 
 
-# How is R used in your field/amongst your colleagues? 
-
-
+# How is R used in your field and amongst your colleagues? 
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -112,19 +107,19 @@ load('~/LOCATION/FILENAME.RData') #DESCRIPTION
 
 # Open RStudio
 
-# Set preferences: RStudio --> Preferences 
+# Set preferences: Tools --> Preferences (Windows) or RStudio --> Preferences (Mac)
 
-  # General: restore most recent
+# General: restore most recent
 
-  # Code: 
-    # Editing: tab width, matching parens/quotes
-    # Display: show margin column (< 100)
+# Code: 
+# Editing: tab width, matching parens/quotes
+# Display: show margin column (< 100)
 
-  # Appearance: option to change font, size, theme
+# Appearance: option to change font, size, theme
 
-  # Pane layout: source, console, environment, files/plots/etc.
+# Pane layout: source, console, environment, files/plots/etc.
 
-  # Git/SVN: option to enable version control
+# Git/SVN: option to enable version control
 
 
 # Keyboard shortcuts: Tools --> Keyboard Shortcuts
@@ -134,7 +129,7 @@ load('~/LOCATION/FILENAME.RData') #DESCRIPTION
 
 # Current version is listed 
 
-# Executing commands:
+# Executing commands (i.e. telling R what you want it to do):
 
 # 1. '>' is the prompt (i.e. "Hi I'm R, what do you want me to do now?")
 
@@ -143,34 +138,55 @@ load('~/LOCATION/FILENAME.RData') #DESCRIPTION
 # 3. Hit 'enter' in Console or 'run' in Script
 
 
-# How to cite R
-
-citation() #execute this command in both the Console and Script
-
 # Keyboard shortcut:	Ctrl+Enter (Windows) or	Command+Enter (Mac)
+
+# CAUTION: This will run the line you're on until the called function is over, so if your 
+# function is incomplete then R will run until it encounters a stopping point. Another option
+# is to highlight the section you want to run and then using the keyboard shortcut.
+
+
+# Calculations: R can be used as a calculator
+
+4 + 5 #execute this command in both the Console and Script
+
+4 +
+  5 #execute this command from the Source Script (i.e. here) with the keyboard shortcut
+
+# NOTE: R is running the operation (multiplying) over two lines with the keyboard shortcut.
+
+
+# Functions: R can execute pre-defined functions (arguments in parentheses) that return a value
+
+sum(4, 5) #sums numbers
+
+sum 4, 5 #Why does this not work?
+
+
+print('I am a new R user and this is my first text output!') #prints text
 
 
 # Use 'up' arrow to retrieve last function
 
-# Common mistake: unclosed bracket(s) --> '+' indicates unfinished command --> fix or 'Esc' to exit
+# Common mistake: unfinished command --> '+' indicates unfinished command --> fix or 'Esc' to exit
 
 
-# # PRACTICE SOME CALCULATIONS # # -----------------------------------------------------------------
+# Not sure what a function does?
+
+?sum
+
+
+# # PRACTICE: Some calculations # # ----------------------------------------------------------------
 
 # Using operators
 
-3 * 4 - 2
+3 * 4 - 2 
 
 12 / 6
 
-2 ^ 4
+2 ^ 4 
 
 
 # Using functions
-
-print('I am a new R user and this is my first text output!') #prints text
-
-sum(2, 3, 4) #sums numbers
 
 sum(1:10) #sums numbers in a sequence from 1 to 10
 
@@ -188,22 +204,21 @@ cos(pi) #cosine of number in radians
 
 rep('hello', 3) #repeats a specified object a specified number of times
 
+rep('gruezi', 3) #repeat function
 
-# Now, write 5 calculations with operators and 5 with functions and write answer as comment with '#'
+k <- seq(0, 20, 4) #sequence function: from, to, by
+
+
+# Write 3 calculations with operators and 3 with functions and write answer as comment with '#'
 #
 #
-
-
-# Not sure what a function does?
-
-?prod
 
 
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-# # 3. DATA, OBJECTS, LISTS, MATRICES, DFs, ARRAYS # # 
+# # 3. DATA, OBJECTS, VECTORS, LISTS, MATRICES, DFs, ARRAYS # # 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -222,30 +237,163 @@ rep('hello', 3) #repeats a specified object a specified number of times
 # --> A certain way to organize digital data so it can be efficiently used
 
 
-# # DIFFERENT OBJECTS # # --------------------------------------------------------------------------
+# # OBJECTS # # ------------------------------------------------------------------------------------
 
 # Object: data structure with attributes of a certain class 
 
+# Assigment operator: assigns objects on the right to objects on left
 
-# List: vector containing data (numeric AND text)
+# Resulting objects stored in R's memory (the 'Environment')
 
-# EXAMPLE: List of data (e.g. words or numbers) not belonging in certain category
+# Keyboard shortcut: Alt+- (Windows) or	Option+- (Mac)
 
+
+# Create two objects: 
+
+a <- 4  #what is being assigned to what?
+
+b <- 5
+
+
+# Look at your objects:
+
+a #run (i.e. execute) this
+
+b #run this
+
+
+# These objects a and b are now stored in R's memory, so we can use them: 
+
+a + b
+
+sum(a, b)
+
+
+# NOTE! R is case sensitive, and objects cannot be named with spaces or existing functions.
+# You can see this by running 'A' or 'B', which do not exist.
+
+
+# # PRACTICE: Objects # #
+
+# Change a to a different number, then re-add to b. What happens? (Hint: need to re-run a)
+#
+#
+
+# Create a new object with the sum of a and b and look at it
+#
+#
+
+
+# # VECTORS # # ------------------------------------------------------------------------------------
+
+# Vector: sequence of data elements of same basic type
+
+# Combine our existing objects:
+
+myvector <- a, b #Does this work?
+
+myvector <- c(a, b) #need c() function to concatenate elements
+
+
+# Can also create vector with text data:
+
+y <- 'bonjour' #need quotation marks for words
+
+c <- c('ciao', 'gruezi') #still need to use c() to combine elements
+
+mytextvector <- c(y, c) #what does this vector contain?
+
+
+# # PRACTICE: Vectors # #
+
+# Create a new vector with your two existing vectors
+#
+#
+
+# Create 3 new objects and create a new vector with them
+#
+#
+
+
+# # LISTS # # --------------------------------------------------------------------------------------
+
+# List: contains sequence of data (numeric AND text; can contain other lists)
+
+
+mylist <- list(myvector, mytextvector) #list created maintaining original data type and allocation
+
+# Now, look at this list: how is this different than a vector?
+#
+#
+
+
+class(mylist) #class of ll
+
+length(mylist) #length of ll
+
+
+# # PRACTICE: Lists # #
+
+# Create your own list with 3 vectors
+#
+#
+
+# What class is your list? 
+#
+#
+
+# How long is your list?
+#
+#
+
+
+# NOTE: We discuss indexing of dataframes below, but with lists are indexed with:
+
+mylist[2] #[ ] to return a list with data in it
+
+mylist[[2]] #[[ ]] to return the actual data
+
+
+# # MATRICES # # -----------------------------------------------------------------------------------
 
 # Matrix: data in 2D rectangular layout (numeric OR text)
 
+# matrix() fills in elements vertically by column
+
+numbs <- seq(1, 100, 5) #create a vector for matrix
+
+mm1 <- matrix(data = numbs, ncol=2) #specify columns
+
+mm2 <- matrix(data = numbs, nrow=2) #specify rows
+
+mm3 <- matrix(data = numbs, nrow=2, byrow=TRUE) #fill elements horizontally by row
+
+
+# # PRACTICE: Matrices # #
+
+# Create 2 matrices of different dimensions with the same data
+#
+#
+
+
+# # DATAFRAMES # # ---------------------------------------------------------------------------------
 
 # Dataframe (DF): list of vectors of equal length (numeric AND text)
 
 # EXAMPLE: 
+
 data(mtcars)
 
-# Open mtcars from Environment
+head(mtcars) #first six rows of DF
 
 # What do the rows and columns represent? 
 #
 #
 # --> Recorded observations (rows) for specified variables (columns)
+
+
+# Open mtcars from Environment to see full dataframe
+
 
 # Why can this not be a matrix?
 #
@@ -253,186 +401,11 @@ data(mtcars)
 # --> Contains both text and numeric data
 
 
+# # ARRAYS # # -------------------------------------------------------------------------------------
+
 # Array: an object with more than 2D (numeric and text)
 
-# EXAMPLE: If car models were tested every year for the same variables, could make array
-
-
-# # SIMPLE OBJECTS # # -----------------------------------------------------------------------------
-
-# Assigment operator: creates an object in R's memory (the 'Environment')
-
-# Keyboard shortcut: Alt+- (Windows) or	Option+- (Mac)
-
-x <- 7
-
-y <- 'bonjour' #quotation marks for words
-
-c <- c('bonjour', 'gruezi') #concatenate two elements
-
-z <- rep('gruezi', 3) #repeat function
-
-k <- seq(0, 20, 4) #sequence function: from, to, by
-
-
-# Now, create 3 objects and look at them
-#
-#
-
-
-# What happens with: 
-
-x1 <- x + k #x1 = 
-
-x2 <- x * k #x2 = 
-
-x3 <- k / x #x3 = 
-
-x4 <- k * 0.5 #x4 = 
-
-
-# Now, use your objects to perform 3 calculations as above
-#
-#
-
-
-# # LISTS # # --------------------------------------------------------------------------------------
-
-ll <- c(x, y, z, k) #concatenates elements created above
-
-# Now, look at this list
-#
-#
-
-
-class(ll) #class of ll?
-
-length(ll) #length of ll?
-
-
-# Now, create your own list
-#
-#
-
-
-# What class is your list? 
-#
-#
-
-
-# How long is your list?
-#
-#
-
-
-# Note: We discuss indexing of dataframes below, but with lists are indexed with:
-# [ ] to return a list with dataframe in it
-# [[ ]] to return the actual dataframe
-
-
-# # MATRICES # # -----------------------------------------------------------------------------------
-
-# Matrix: fills in elements vertically by column
-
-mm1 <- matrix(data = x4, ncol=2) #specify columns
-
-mm2 <- matrix(data = x4, nrow=2) #specify rows
-
-mm3 <- matrix(data = x4, nrow=2, byrow=TRUE) #fill elements horizontally by row
-
-
-# Now, create 2 matrices of different dimensions
-#
-#
-
-
-# # DATAFRAMES # # ---------------------------------------------------------------------------------
-
-# Create a vector of colors of 5 clothes you're wearing
-
-mycolors <- c('red', 'black', 'blue', 'blue', 'white') 
-
-
-# Indexing in 1D
-
-mycolors[2] #the 2 represents = 
-
-
-# Create vector with your preference for each color 
-
-myprefs <- c(2, 3, 1, 1, 4) 
-
-
-# Ask your neighbor for their preferences 
-
-yourprefs <- c(3, 1, 2, 2, 4) 
-
-
-# Create DF out of your three vectors
-
-dd <- data.frame(colors = mycolors, 
-                 preference = myprefs, 
-                 preference_neighbor = yourprefs) #combine these 3 vectors
-
-
-# Now, look at dd: how did R know to match your preference to a certain color?
-#
-#
-
-
-# Indexing in 2D
-
-# I. Using brackets: R thinks in [ROWS, COLUMNS]
-
-dd[2,1] #this is =
-
-# II. Using $ : element name (i.e. column names of our DF)
-
-dd$colors[2] #this is =
-
-
-# What color is in the 3rd row? Color =
-#
-#
-
-
-# Change column names
-
-colnames(dd) <- c('colors', 'pref', 'pref_neighb')
-
-
-# Now, look at dd: what changed? Change =
-#
-#
-
-
-# ADD TO DF # --------------------------------------------------------------------------------------
-
-# I. Add new vector to exisiting DF
-
-dd$clothes <- c('hat', 'pants', 'scarf', 'socks') #clothes you are wearing in 'mycolors'
-
-
-# ERROR: what happened? Error because = 
-
-
-# Now, add a vector as dd$clothes that works
-#
-#
-
-
-# II. First create vector then add as new column
-
-# Is your neighbor wearing clothes in those colors (yes=1, no=0)?
-
-clothes_neighb <- c(1, 0, 1, 1, 0) 
-
-dd <- cbind(dd, clothes_neighb) #bind vector as new column to existing DF
-
-
-# Now, look at dd. What changed? Change = 
-#
-#
+# EXAMPLE: If car models are tested every year for the same variables, could make array
 
 
 
@@ -444,60 +417,171 @@ dd <- cbind(dd, clothes_neighb) #bind vector as new column to existing DF
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 
+
+
+# # BUILDING A DATAFRAME # # -----------------------------------------------------------------------
+
+# We will build a DF here to explore what that is. Generally you'd simply load your data into R, 
+# which will read it as a data frame (or a list, but this gets complicated).
+
+# Create a vector of colors of 5 clothes you're wearing and look at it
+
+mycolors <- c('blue', 'blue', 'grey', 'blue', 'white') #replace these with your clothes' colors
+
+
+# Indexing in 1D
+
+mycolors[7] #the 2 represents = blue
+
+
+# Create vector with your preference for each color 
+
+myprefs <- c(1, 1, 3, 1, 2) 
+
+
+# Ask your neighbor for their preferences 
+
+yourprefs <- c(3, 3, 1, 3, 2) 
+
+
+# Create DF out of your three vectors
+
+mydf <- data.frame(colors = mycolors, 
+                   preference = myprefs, 
+                   preference_neighbor = yourprefs) #combines 3 vectors with these column names
+
+
+# Now, look at mydf: how did R know to match your preference to a certain color?
+#
+#
+
+
+# Indexing in 2D
+
+# I. Using brackets: R thinks in [ROWS, COLUMNS]
+
+mydf[2,1] #this is =
+
+
+# II. Using $ : element name (i.e. column names of our DF)
+
+mydf$colors[2] #this is =
+
+
+# What color is in the 5th row? Color =
+#
+#
+mydf$colors[5]
+
+
+# Change column names
+
+colnames(mydf) <- c('colors', 'pref', 'pref_neighb')
+
+
+# Now, look at mydf: what changed? Change = change in column names
+#
+#
+
+
+# ADD TO DF # --------------------------------------------------------------------------------------
+
+# I. Add new vector to exisiting DF
+
+mydf$clothes <- c('hat', 'pants', 'scarf', 'socks') #clothes you are wearing in 'mycolors'
+
+# ERROR: what happened? Error because = 
+
+
+# Now, add a vector as dd$clothes that works
+#
+#
+mydf$clothes <- c('hat', 'pants', 'scarf', 'socks', 'shoes')
+
+
+# II. First create vector then add as new column
+
+# Is your neighbor wearing clothes in those colors (yes=1, no=0)?
+
+clothes_neighb <- c(0, 0, 0, 0, 0) 
+
+mydf <- cbind(mydf, clothes_neighb) #combine existing DF with vector to add as new Column
+
+
+# Now, look at mydf. What changed? Change
+#
+#
+
+
+# REMOVE FROM DF # ---------------------------------------------------------------------------------
+
+# Use [ ] to index rows and columns in DF
+# Remember that R thinks in [ROWS, COLUMNS]
+
+mydf_shorter <- mydf[-5,] #delete 5th row from mydf
+
+mydf_smaller <- mydf[,-3] #delete 3rd column from mydf
+
+# NOTE: We are creating a NEW DF that is subsetted, in order to not overwrite the original one.
+
+
+
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-# # 4. EXPLORE DATASET WITH BASIC FUNCTIONS # # 
+# # 4. EXPLORE DATAFRAME WITH BASIC FUNCTIONS # # 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 
-# # DIMENSIONS OF DF # # ---------------------------------------------------------------------------
+# # PRACTICE: Dataframe dimensions # #
 
-dim(dd) #rows, columns = 
+dim(mydf) #rows, columns = 
 
-nrow(dd) #number of rows = 
+nrow(mydf) #number of rows = 
 
-ncol(dd) #number of columns =
+ncol(mydf) #number of columns =
 
 
-# # STRUCTURE # # ----------------------------------------------------------------------------------
+# # PRACTICE: Dataframe structure # #
 
-str(dd) #columns are numeric, character, or factor = 
+str(mydf) #columns are numeric, character, or factor = 
+
+
+# Numerical: numerical values (continuous, discrete, integers, etc.)
+
+is.numeric(mydf$pref) #numeric = 
+
+is.numeric(mydf$clothes) #numeric = 
 
 
 # Factor: variables that have limited number of different values
 
-levels(dd$colors) #number of categories in the factor variable 'color' =
+levels(mydf$colors) #number of categories in the factor variable 'color' =
 
-
-# Numerical: decimal values (continuous, discrete, integers, etc.)
-
-is.numeric(dd$pref) #numeric =
-
-is.numeric(dd$clothes) #numeric =
+is.character(mydf$colors) #character = 
 
 
 # Character: an object made up of string values
 
-dd$colors <- as.character(dd$colors) #change to character for future analysis/adding data to DF
+mydf$colors <- as.character(mydf$colors) #change to character for future analysis/adding data to DF
 
-is.character(dd$colors) #character = 
+is.character(mydf$colors) #character? = 
 
 
 # Now, check structure of dataframe again: what changed? Change = 
 #
 #
 
+# # ADVANCED PRACTICE: Be aware of any numeric variables as factor! # #
 
-# ADVANCED: be aware of any numeric variables as factor!
+mydf$clothes_neighb <- as.factor(mydf$clothes_neighb) #make 'pref_clothes' variable a factor variable
 
-dd$clothes_neighb <- as.factor(dd$clothes_neighb) #make 'pref' variable a factor variable
+str(mydf$clothes_neighb) #check structure of this column
 
-str(dd$clothes_neighb) #check structure of this column
+mydf$clothes_numeric <- as.numeric(mydf$clothes_neighb) #factor LEVEL, not orginal numeric value, assigned
 
-dd$clothes_altered <- as.numeric(dd$clothes_neighb) #factor LEVEL, not orginal numeric value, assigned
-
-dd$clothes_altered_correct <- as.numeric(as.character(dd$clothes_neighb)) #correct tranformation
+mydf$clothes_numeric_correct <- as.numeric(as.character(mydf$clothes_neighb)) #correct tranformation
 
 
 
@@ -509,48 +593,63 @@ dd$clothes_altered_correct <- as.numeric(as.character(dd$clothes_neighb)) #corre
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 
+# # PRACTICE: Checking data # # 
+
 # Summary function
 
-summary(dd) #of every column
+summary(mydf) #of every column
 
-summary(dd$pref) #of one column
+summary(mydf$pref) #of one column
 
 
 # Data maximum
 
-max(dd$pref)
+max(mydf$pref)
 
 
 # Data minimum
 
-min(dd$pref)
+min(mydf$pref)
 
 
-# Now, what is the minimum, maximum, and mean of your neighbor's preferences?
+# What is the minimum, maximum, and mean of your neighbor's preferences?
 #
 #
+
+min(mydf$pref_neighb)
+
+max(mydf$pref_neighb)
+
+mean(mydf$pref_neighb) 
 
 
 # Data range
 
-range(dd$pref)
+range(mydf$pref)
 
 
 # Unique entries
 
-unique(dd$colors) #lists all unique entries
+unique(mydf$colors) #lists all unique entries
 
-length(unique(dd$colors)) #number of unique entries
+length(unique(mydf$colors)) #number of unique entries
 
 
-# Now, what are the unique entries for your clothes?
+# What are the unique entries for your clothes?
+#
+#
+
+# How many different unique entries does your clothes column have?
 #
 #
 
 
-# How many different unique entries are there?
-#
-#
+# Sort data
+
+sort(mydf$pref) #sorts by increasing numeric order
+
+mydf_rev <- mydf[order(mydf$pref),] #orders the entire mydf by 'pref' 
+
 
 
 
@@ -566,12 +665,12 @@ length(unique(dd$colors)) #number of unique entries
 
 # What if you don't have a preference for a color in 'mycolors'?
 
-dd$no_pref <- c('NA', 3, 1, 1, 'NA') #insert 'NA' for color you don't have a specific preference for
+mydf$no_pref <- c(1, 1, 'NA', 1, 'NA') #insert 'NA' for color you don't have a preference for
 
 
 # Calculate mean of your new preferences
 
-mean(dd$no_pref) #ERROR: 'argument is not numeric or logical'
+mean(mydf$no_pref) #ERROR: 'argument is not numeric or logical'
 
 # Check structure of your DF
 #
@@ -580,7 +679,7 @@ mean(dd$no_pref) #ERROR: 'argument is not numeric or logical'
 
 # Change character to numeric
 
-dd$no_pref <- as.numeric(dd$no_pref) #NAs introduced, ok because we know we have 'NA' values
+mydf$no_pref <- as.numeric(mydf$no_pref) #NAs introduced, ok because we know we have 'NA' values
 
 
 # Try calculating mean again
@@ -588,26 +687,24 @@ dd$no_pref <- as.numeric(dd$no_pref) #NAs introduced, ok because we know we have
 #
 
 
-#Why is mean NA? --> R can't do math with 'NA' values
+# Why is mean NA? 
+#
+#
+# --> R can't do math with 'NA' values
 
-mean(dd$no_pref, na.rm=T) #tell R to remove 'NA' values for purposes of calculation
+mean(mydf$no_pref, na.rm = T) #tell R to remove 'NA' values for purposes of calculation
 
 
 # Locate your 'NA' values
 
-which(is.na(dd$no_pref)) #where are your 'NA' values = 
+which(is.na(mydf$no_pref)) #where are your 'NA' values = 3, 5
 
 
-# ADVANCED: Now, how many NA values do you have in no_pref?
+# # PRACTICE: NA values # #
+
+# How many NA values do you have in no_pref?
 #
 #
-
-
-# # SORT DATA # # ----------------------------------------------------------------------------------
-
-sort(dd$pref) #sorts by increasing numeric order
-
-dd_rev <- dd[order(dd$pref),] #orders entire DF by 'pref' 
 
 
 
@@ -619,36 +716,91 @@ dd_rev <- dd[order(dd$pref),] #orders entire DF by 'pref'
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 
+# # WORKING DIRECTORY # # --------------------------------------------------------------------------
+
+# Set a directory to prevent re-typing path every time
+
+# Use 'tab' key for options after each '/'
+
+setwd('/Users/PATH/') #full path (insert PATH for your computer)
+
+setwd('~/PATH/') #abbreviated path with '~' (insert PATH for your computer)
+
+setwd('c:/Users/.../Desktop/') #Windows: replace ... with your username
+
+
 # # SAVE # # ---------------------------------------------------------------------------------------
 
 # Save DF created in R: useful for future use, email to collaborators, etc.
 
-save(dd, file='/PATH/PROJECT_FOLDER/r_files/dd.RData') #saves DF as .RData
+save(mydf, file='mydf.RData') #saves DF as .RData in Desktop
+
+
+# NOTE: The content behind the last / will be the new file.
+
+
 
 
 # # EXPORT # # -------------------------------------------------------------------------------------
 
 # Export DF to Excel: useful for publication tables, collaborators that don't use R, etc. 
 
-install.packages('openxlsx') #install the corresponding R package
+install.packages('openxlsx') #install the corresponding R package (do this only once)
 
-library(openxlsx) #load package into environment
+library(openxlsx) #need to load package into environment for every new R session
 
 
-write.xlsx(dd, file='/PATH/PROJECT_FOLDER/data_2017/dd.xlsx') #export DF as xlsx file
+write.xlsx(mydf, file='mydf.xlsx') #export DF as .XLSX file
 
-write.csv(dd, file='/PATH/PROJECT_FOLDER/data_2017/dd.csv') #or export DF as CSV file
+write.csv(mydf, file='mydf.csv') #or export DF as .CSV file
+
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+# # 8. READ IN DATA # # 
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+
+# Load .CSV file: use this type of file whenever possible
+
+data_C <- read.csv('mydf.csv')
+
+# NOTE: The content behind the last / is the file to be read in to R.
+
+
+# Load .XLSX file: use for files with multiple sheets
+
+data_X <- read.xlsx('mydf.xlsx', sheet=1) #this file only has 1 sheet
+
+
+# Load .RData file: use for data frames already created in R
+
+load('~/Desktop/mydf.RData') #DF with original name, not this file name, is now in R's environment
+
+
+# # PRACTICE: Read in data # #
+
+# Set your working directory to one of your folders containing a .CSV or .XLSX data file.
+#
+#
+
+# Create an object (in this case, dataframe) with your data file. 
+#
+#
+
 
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-# # 8. WRITING SCRIPTS # # 
+# # 9. WRITING SCRIPTS # # 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 
-# # ORGANIZING YOUR SCRIPT # # ---------------------------------------------------------------------
+# # PRACTICE: Organizing your script # # 
 
 # Initialize each script with general information (e.g., project, name, date, aims, generated DFs)
 
@@ -664,44 +816,18 @@ write.csv(dd, file='/PATH/PROJECT_FOLDER/data_2017/dd.csv') #or export DF as CSV
 
 # Dedicate a folder within each project folder on computer for corresponding R scripts
 
+# Cite R in your work:
 
-# Set a directory to prevent re-typing path every time
-# use 'tab' key for options after each '/'
-
-setwd('/Users/nathaliechardon/Desktop/DSI_GA/workshops/') #full path
-
-setwd('~/Desktop/DSI_GA/workshops/') #abbreviated path with '~'
+citation() 
 
 
-# Save .RData files in ONE place (e.g. 'project_name/r_files.RData') for easier future searching
+# SAVING:
 
-# Save generated DFs in one place (e.g. 'project_name/data_YEAR.xlsx)
+# Save .RData files in ONE place (e.g. 'project_name_YEAR/r_data/first_df.RData')
 
-# Save scripts in one place (e.g. 'project_name/scripts/)
+# Save generated DFs in one place (e.g. 'project_name_YEAR/results/first_df.xlsx')
 
-
-
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-
-# # 9. READ IN DATA # # 
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-
-
-# Load .CSV file: use this type of file whenever possible
-
-data_C <- read.csv('data_2017/dd.csv')
-
-
-# Load .XLSX file: use for files with multiple sheets
-
-data_X <- read.xlsx('data_2017/dd.xlsx', sheet=1)
-
-
-# Load .RData file: use for data frames already created in R
-
-data_R <- load('data_2017/dd.RData')
+# Save scripts in one place (e.g. 'project_name_YEAR/scripts/first_script.R')
 
 
 
@@ -715,57 +841,64 @@ data_R <- load('data_2017/dd.RData')
 
 # # CU BOULDER # #
 
-# Center for Research Data and Digital Scholarship: various events throughout semester
-  # Hack Hours: Wednesdays 4-6PM
-  # <http://www.colorado.edu/crdds/>
+# Center for Research Data and Digital Scholarship
+# Hacky Hours: Wednesdays 4-6PM (Norlin E206)
+# Events: < http://www.colorado.edu/crdds/events >
+# Listserv: < https://lists.colorado.edu/sympa/subscribe/crdds-news >
+# Workshop voiceovers and scripts: < https://osf.io/6jb9t/ >
 
 # Laboratory for Interdisciplinary Statistical Analysis
-  # <http://www.colorado.edu/lab/lisa/resources>
+# <http://www.colorado.edu/lab/lisa/resources>
 
 
 # # ONLINE SUPPORT # # 
 
+# Data Carpentry
+# Parts of this workshop reference the following lesson: 
+# < http://www.datacarpentry.org/R-genomics/01-intro-to-R.html >
+
 # R manuals by CRAN
-  # <https://cran.r-project.org/manuals.html>
+# <https://cran.r-project.org/manuals.html>
 
 # Basic Reference Card
-  # <https://cran.r-project.org/doc/contrib/Short-refcard.pdf>
+# <https://cran.r-project.org/doc/contrib/Short-refcard.pdf>
 
 # R for Beginners (Emmanuel Paradis)
-  # <https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf>
+# <https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf>
 
 # The R Guide (W. J. Owen)
-  # <https://cran.r-project.org/doc/contrib/Owen-TheRGuide.pdf>
+# <https://cran.r-project.org/doc/contrib/Owen-TheRGuide.pdf>
 
 # An Introduction to R (Longhow Lam)
-  # <https://cran.r-project.org/doc/contrib/Lam-IntroductionToR_LHL.pdf>
+# <https://cran.r-project.org/doc/contrib/Lam-IntroductionToR_LHL.pdf>
 
 # Cookbook for R
-  # <http://www.cookbook-r.com/>
+# <http://www.cookbook-r.com/>
 
 # Advanced R (Hadley Wickham)
-  # <http://adv-r.had.co.nz/>
+# <http://adv-r.had.co.nz/>
 
 # rseek: search most online R documentation and discussion forums
-  # <http://rseek.org/>
+# <http://rseek.org/>
 
 # The R Inferno: useful for trouble shooting errors
-  # <http://www.burns-stat.com/documents/books/the-r-inferno/>
+# <http://www.burns-stat.com/documents/books/the-r-inferno/>
 
 # Google: endless blogs, posted Q & A, tutorials, references guides where you're often
-# directed to sites such as stackoverflow, crossvalidated, and the R-help mailing list
+# directed to sites such as Stackoverflow, Crossvalidated, and the R-help mailing list.
 
 
 # # ONLINE TUTORIALS # #
 
 # YouTube R channel
-  # <https://www.youtube.com/user/TheLearnR>
+# <https://www.youtube.com/user/TheLearnR>
 
 # R Programming in Coursera
-  # <https://www.coursera.org/learn/r-programming>
+# <https://www.coursera.org/learn/r-programming>
 
 # Various R videos
-  # <http://jeromyanglim.blogspot.co.uk/2010/05/videos-on-data-analysis-with-r.html>
+# <http://jeromyanglim.blogspot.co.uk/2010/05/videos-on-data-analysis-with-r.html>
 
 
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
