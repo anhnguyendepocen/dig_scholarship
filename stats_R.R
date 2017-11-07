@@ -550,9 +550,9 @@ abline(mod) #add fitted linear regression line
 
 # # LINEAR REGRESSION VS. NON-PARAMETRIC TESTS # #
 
-# SIMPLE LINEAR REGRESSION: assumes normal distribution of dependent variable
+# SIMPLE LINEAR REGRESSION: assumes normal distribution of residuals
 
-# NON-PARAMETRIC CORRELATION: non-parametric distribution of dependent variable 
+# NON-PARAMETRIC CORRELATION: non-parametric distribution of residuals 
 
 # cor.test(x1, x2) #test correlation between variable 1 and variable 2
 
