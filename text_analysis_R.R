@@ -187,36 +187,50 @@ frank <- texts[1] #extracts first element of 'texts'
 # Remove punctuation # -----------------------------------------------------------------------------
 
 # WHY: allows words to be read identically (ex: postcolonial vs. post-colonial)
+# WHY: Punctuation and other special characters only look like more words to your computer and R.
+
+docs <- tm_map(docs,removePunctuation) 
 
 
 
-
-# Convert to lower case # --------------------------------------------------------------------------
+# Convert to lowercase # --------------------------------------------------------------------------
 
 # WHY: allows words to be read identically (Mother vs. mother)
 
+docs <- tm_map(docs, tolower)   
+docs <- tm_map(docs, PlainTextDocument)
+DocsCopy <- docs
 
 
 
 # Stemming # ---------------------------------------------------------------------------------------
 
 # WHY: allows words to read identically (educating vs. educated)
+# This is a good practice, but the fucntin doesn't always work properly.
+# You don't have to run this section of code for that reason.
+docs_st <- tm_map(docs, stemDocument)   
+docs_st <- tm_map(docs_st, PlainTextDocument)
+writeLines(as.character(docs_st[1])) 
 
+# Check to see if it worked:
+# docs <- docs_st
 
 
 
 # Remove white space # -----------------------------------------------------------------------------
 
 # WHY: spacing can be unimportant in corpora
+docs <- tm_map(docs, stripWhitespace)
 
-
+# Check to see if it worked:
+# writeLines(as.character(docs[1])) 
 
 
 # Remove numbers # ---------------------------------------------------------------------------------
 
 # WHY: page numbers and Optical Character Recognition (OCR) errors introduce noise
 
-
+docs <- tm_map(docs, removeNumbers)   
 
 
 
@@ -224,7 +238,9 @@ frank <- texts[1] #extracts first element of 'texts'
 
 # WHY: common words in a language that are used more frequently than the important words
 
+docs <- tm_map(docs, removeWords, stopwords("english"))
 
+# Nickoal to Nathalie: upload a separate stop list?
 
 
 
