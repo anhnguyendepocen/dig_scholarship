@@ -134,12 +134,12 @@ dir(mydirectory) #set this directory
 
 # Load corpora into R's environment
 
-texts <- VCorpus(DirSource(mydirectory)) #pulls copora from directory source ('mydirectory')
+texts <- VCorpus(DirSource(mydirectory)) #pulls texts from directory source ('mydirectory')
 
 
 # # LOOK AT DATA # # -------------------------------------------------------------------------------
 
-# Check both Frankenstein and Romeo_Juliet corpora
+# Check both Frankenstein and Romeo_Juliet texts
 
 summary(texts) #summary of contents in 'texts'
 
@@ -156,12 +156,12 @@ inspect(texts[1]) #data on first element in 'texts' = Frankenstein
 #
 
 
-# Create separate object named 'frank' with Frankenstein corpora
+# Create separate object named 'frank' with Frankenstein text
 
 frank <- texts[1] #extracts first element of 'texts' 
 
 
-# Create separate object named 'juliet' with Romeo & Juliet corpora
+# Create separate object named 'juliet' with Romeo & Juliet text
 #
 #
 
@@ -240,7 +240,7 @@ docs <- tm_map(docs, removeNumbers)
 
 docs <- tm_map(docs, removeWords, stopwords("english"))
 
-# Nickoal to Nathalie: upload a separate stop list?
+# Nickoal to Nathalie: Are we uploading a separate stop list?
 
 
 
